@@ -7,7 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -79,16 +79,16 @@ public class MotleyGrillBlock extends FeastBlock {
     }
 
 
-    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return level.isClientSide && this.takeServing(level, pos, state, player, hand).consumesAction() ? ItemInteractionResult.SUCCESS : this.takeServing(level, pos, state, player, hand);
+    public InteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        return level.isClientSide && this.takeServing(level, pos, state, player, hand).consumesAction() ? InteractionResult.SUCCESS : this.takeServing(level, pos, state, player, hand);
     }
 
-    protected ItemInteractionResult takeServing(LevelAccessor level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
+    protected InteractionResult takeServing(LevelAccessor level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
         int servings = (Integer) state.getValue(this.getServingsProperty());
         if (servings == 0) {
             level.playSound((Player) null, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
             level.destroyBlock(pos, true);
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         } else {
             ItemStack serving = this.getServingItem(state);
             ItemStack remainder = PlatformMethods.getRemainder(serving);
@@ -118,13 +118,13 @@ public class MotleyGrillBlock extends FeastBlock {
                     }
 
                     level.playSound((Player) null, pos, SoundEvents.ARMOR_EQUIP_GENERIC.value(), SoundSource.BLOCKS, 1.0F, 1.0F);
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
 
                 player.displayClientMessage(TextUtils.getTranslation("block.feast.use_container", new Object[]{remainder.getHoverName()}), true);
             }
 
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return InteractionResult.PASS;
         }
     }
 

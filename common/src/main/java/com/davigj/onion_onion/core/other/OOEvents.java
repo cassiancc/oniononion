@@ -2,13 +2,13 @@ package com.davigj.onion_onion.core.other;
 
 import com.davigj.onion_onion.core.OOConfig;
 import com.davigj.onion_onion.core.other.tags.OOItemTags;
-import dev.architectury.event.EventResult;
 import dev.architectury.platform.Platform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -23,7 +23,7 @@ import static com.davigj.onion_onion.core.other.OnionCutUtil.affectBlocks;
 import static com.davigj.onion_onion.core.other.OnionCutUtil.affectLivingEntities;
 
 public class OOEvents {
-    public static EventResult onPlayerRightClickBlock(Player player, InteractionHand hand, BlockPos pos, Direction direction) {
+    public static InteractionResult onPlayerRightClickBlock(Player player, InteractionHand hand, BlockPos pos, Direction direction) {
         if (!OOConfig.COMMON.onionFun.get()) {
             return null;
         }
@@ -68,6 +68,6 @@ public class OOEvents {
                 }
             }
         }
-        return EventResult.pass();
+        return InteractionResult.PASS;
     }
 }

@@ -2,9 +2,7 @@
   "type": "minecraft:smelting",
   "cookingtime": 200,
   "experience": 0.35,
-  "ingredient": {
-    "item": "onion_onion:onion_slice"
-  },
+  "ingredient": "onion_onion:onion_slice",
   "result": {
     "id": "onion_onion:onion_rings"
   }

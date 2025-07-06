@@ -6,24 +6,12 @@
     "STO"
   ],
   "key": {
-    "C": {
-      "item": "farmersdelight:fried_rice"
-    },
-    "F": {
-      "tag": "onion_onion:motley_mushrooms"
-    },
-    "R": {
-      "item": "farmersdelight:cooked_chicken_cuts"
-    },
-    "S": {
-      "tag": "c:salad_ingredients"
-    },
-    "T": {
-      "item": "minecraft:iron_ingot"
-    },
-    "O": {
-      "item": "onion_onion:onion_slice"
-    }
+    "C":  "farmersdelight:fried_rice",
+    "F": "#onion_onion:motley_mushrooms",
+    "R": "farmersdelight:cooked_chicken_cuts",
+    "S": "#c:leafy_green",
+    "T": "minecraft:iron_ingot",
+    "O": "onion_onion:onion_slice"
   },
   "result": {
     "id": "onion_onion:motley_grill_block",
