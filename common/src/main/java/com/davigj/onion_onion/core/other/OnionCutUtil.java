@@ -54,17 +54,13 @@ public class OnionCutUtil {
                         livingEntity.getZ(), new ItemStack(Items.GHAST_TEAR));
                 level.addFreshEntity(ghastTearEntity);
                 if (!(PlatformMethods.isFakePlayer(player)) && player instanceof ServerPlayer serverPlayer) {
-                    if (!player.getCommandSenderWorld().isClientSide()) {
-                        OOCriteriaTriggers.ONION_GHAST.get().trigger((serverPlayer));
-                    }
+                    OOCriteriaTriggers.ONION_GHAST.get().trigger((serverPlayer));
                 }
             }
         }
         if (player != null && cuttingBoard && advancementWorthy >= 10 && player.hasEffect(MobEffects.INVISIBILITY)) {
             if (player instanceof ServerPlayer serverPlayer) {
-                if (!player.getCommandSenderWorld().isClientSide()) {
-                    OOCriteriaTriggers.ONION_NINJA.get().trigger((serverPlayer));
-                }
+                OOCriteriaTriggers.ONION_NINJA.get().trigger((serverPlayer));
             }
         }
     }
