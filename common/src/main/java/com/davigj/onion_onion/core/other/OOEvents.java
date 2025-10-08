@@ -34,7 +34,7 @@ public class OOEvents {
         if (OWFLoaded && OOConfig.COMMON.bigOnion.get()) {
             if (clickedBlockState.getBlock() instanceof OverweightOnionBlock &&
                     heldItem.getItem() instanceof AxeItem) {
-                if (player.level().isClientSide) {
+                if (player.level().isClientSide()) {
                     for (int i = 0; i < 3; i++) {
                         player.level().addParticle(ParticleTypes.SNEEZE, pos.getX() + (2 * random.nextDouble()),
                                 pos.getY() + 0.5, pos.getZ() + (2 * random.nextDouble()), 0, 0, 0);
@@ -57,7 +57,7 @@ public class OOEvents {
                     activateTears = true;
                 }
                 if (activateTears) {
-                    if (player.level().isClientSide) {
+                    if (player.level().isClientSide()) {
                         for (int i = 0; i < 3; i++) {
                             player.level().addParticle(ParticleTypes.SNEEZE, pos.getX() + random.nextDouble(),
                                     pos.getY() + 0.5, pos.getZ() + random.nextDouble(), 0, 0, 0);

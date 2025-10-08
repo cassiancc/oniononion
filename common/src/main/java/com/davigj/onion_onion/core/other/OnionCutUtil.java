@@ -7,6 +7,7 @@ import com.davigj.onion_onion.core.registry.OOCriteriaTriggers;
 import com.davigj.onion_onion.core.registry.OODamageSources;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.PowerParticleOption;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -85,7 +86,7 @@ public class OnionCutUtil {
                     } else if (OBBY_MAP.containsKey(state.getBlock()) && random.nextDouble() <= OOConfig.COMMON.cryingObby.get()) {
                         if (level instanceof ServerLevel server) {
                             for (int i = 0; i < 4; i++) {
-                                server.sendParticles(ParticleTypes.DRAGON_BREATH, pos.getX() + random.nextDouble() - 0.5,
+                                server.sendParticles(PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1), pos.getX() + random.nextDouble() - 0.5,
                                         pos.getY() + random.nextDouble(), pos.getZ() + random.nextDouble() - 0.5, 1, 0, 0, 0, 0.0);
                             }
                             level.setBlock(pos, OBBY_MAP.get(state.getBlock()).withPropertiesOf(state), 3);
